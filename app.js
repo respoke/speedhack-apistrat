@@ -14,29 +14,30 @@ function myRespokeApp() {
 
     /**
      * Welcome to the speed hack challenge
-     * Your mission:
-     * 1. Add your appid above
-     * 2. Finsh the speedHack() function
-     * 3. Send us a chat message with your codepen URL using http://respoke-messaging.herokuapp.com/
-     * 4. Accept the video call and tell us what you want to use Respoke for
      * 
-     * Notes:
-     * - speedHack() is called when the "call" button is clicked
-     * - Start a call with the endpoint specified by the friendID variable
-     * - The onConnect() and onLocalVideo() helper callbacks are available to you to attach video to the UI
-     * - Docs here may help: https://docs.respoke.io/js-library/respoke.Client.html#startCall
+     * Your mission:
+     * 
+     * 1. ***FORK THE CODE PEN*** here: http://codepen.io/Respoke/pen/BdlHK/left/?editors=001
+     *   1. BE SURE TO FORK!
+     * 2. Add your appid above
+     * 3. Implement the speedHack() function per these notes:
+     *   1. Docs here may help: https://docs.respoke.io/js-library/respoke.Client.html#startCall
+     *   2. speedHack() is called when the "call" button is clicked
+     *   3. Start a call with the endpoint specified by friendId (which is set for you)
+     *   4. This smaple app contains onConnect() and onLocalMedia() helper funtions you may wish to use
+     *   5. ***BE SURE TO SAVE YOUR FORK'D CODEPEN***
+     * 4. Send us a chat message with your codepen URL using http://respoke-messaging.herokuapp.com/
+     * 5. Accept the video call and tell us what you want to use Respoke for
+     * 
      * - Go! 
     **/
 
-    // speedhackers do dis
+// tell to them to save
+
+
     function speedHack() {
 
-    // your speedhack code here
-        client.startCall({
-           endpointId: friendId,
-           onConnect: onConnect,
-           onLocalMedia: onLocalVideo
-        });
+    // speedhackers add code here per notes above
 
     }
 
@@ -120,7 +121,7 @@ function myRespokeApp() {
         ui.showLeaveAlert(endpointId);
     }
 
-    // call friendID when call button is clicked
+    // call friendId when call button is clicked
     $("#controls").on("click", "#callButton", function() {
         friendId = $('#friendList').val();
         console.log('calling', friendId);
@@ -135,18 +136,18 @@ function myRespokeApp() {
         call = evt.call; // strore call object globally
         evt.call.answer({
             onConnect: onConnect,
-            onLocalMedia: onLocalVideo
+            onLocalMedia: onLocalMedia
         });
         // listen for the 'hangup' event for this call
         evt.call.listen('hangup', hangup);
     });
 
-    // startCall / answer helper fucntions [onConnect, onLocalVideo]
+    // startCall / answer helper fucntions [onConnect, onLocalMedia]
     function onConnect(evt) {
         ui.setVideo('remoteVideoSource', evt.element);
     }
 
-    function onLocalVideo(evt) {
+    function onLocalMedia(evt) {
         ui.setVideo('localVideoSource', evt.element);
     }
 
@@ -171,7 +172,7 @@ var ui = {
             .html("Not connected")
             .addClass("red");
         var controlsHTML = [
-            '<input placeholder="username" id="username" type="text" autofocus />',
+            '<input placeholder="username" id="username" type="text" />',
             '<button id="connectButton">Connect</button>',
             '<div id="alert">Enter your name for endpoint ID</div>'
         ];
@@ -195,7 +196,7 @@ var ui = {
             "<strong>" + username + "</strong>"
         ];
         var connectedHTML = [
-            '<input placeholder="Team Name" id="groupId" type="text" autofocus />',
+            '<input placeholder="Team Name" id="groupId" type="text" />',
             '<button id="joinButton" class="joinButton">Join</button>',
             '<div id="alert">Enter your team name for group ID</div>'
         ];
