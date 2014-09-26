@@ -26,8 +26,8 @@ function myRespokeApp() {
      *   3. Start a call with the endpoint specified by friendId (which is set for you)
      *   4. This smaple app contains onConnect() and onLocalMedia() helper funtions you may wish to use
      *   5. ***BE SURE TO SAVE YOUR FORK'D CODEPEN***
-     * 4. Send us a chat message with your codepen URL using http://respoke-messaging.herokuapp.com/
-     * 5. Accept the video call and tell us what you want to use Respoke for
+     * 4. Send respoke\_judge a message on freenode IRC with your codepen URL. You can use http://webchat.freenode.net/?channels=apistrat or any IRC client connected to freenode/#apistrat.
+     * 5. We'll call you on your app! Accept the video call by clicking 'allow' and tell us what you want to use Respoke for.
      * 
      * - Go! 
     **/
